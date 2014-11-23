@@ -1,5 +1,5 @@
 //
-//  conbination.swift
+//  combination.swift
 //  suffering_magic_square
 //
 //  Created by Keita Okamoto on 2014/11/19.
