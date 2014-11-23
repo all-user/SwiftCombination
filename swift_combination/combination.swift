@@ -43,6 +43,7 @@ private func _combination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
 
 public func combination<T>(arr:[T], length:Int) -> [[T]] {
     if length > arr.count || length < 0 { return [] }
+    if arr.isEmpty { return [] }
     if length == 0 { return [[]] }
     
     var ret = [[T]]()
@@ -53,6 +54,7 @@ public func combination<T>(arr:[T], length:Int) -> [[T]] {
 
 public func combination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
     if length > arr.count || length < 0 { return [] }
+    if arr.isEmpty { return [] }
     if length == 0 { process([]); return arr }
     
     return _combination(arr, length, process)
@@ -93,6 +95,7 @@ private func _repeatedCombination<T,U>(arr:[T], length:Int, process:([T]) -> U) 
 
 public func repeatedCombination<T>(arr:[T], length:Int) -> [[T]] {
     if length < 0 { return [] }
+    if arr.isEmpty { return [] }
     if length == 0 { return [[]] }
     
     var ret = [[T]]()
@@ -103,6 +106,7 @@ public func repeatedCombination<T>(arr:[T], length:Int) -> [[T]] {
 
 public func repeatedCombination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
     if length < 0 { return [] }
+    if arr.isEmpty { return [] }
     if length == 0 { process([]); return arr }
     return _repeatedCombination(arr, length, process)
 }
