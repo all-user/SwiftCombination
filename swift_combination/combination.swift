@@ -9,7 +9,7 @@
 import Foundation
 
 
-private func _combination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
+private func _combination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     var indices = (0..<length).map{ $0 }
     var k = length-1
     let arrCnt = arr.count
@@ -52,7 +52,7 @@ public func combination<T>(arr:[T], length:Int) -> [[T]] {
     return ret
 }
 
-public func combination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
+public func combination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     if length > arr.count || length < 0 { return [] }
     if arr.isEmpty { return [] }
     if length == 0 { process([]); return arr }
@@ -61,7 +61,7 @@ public func combination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
 }
 
 
-private func _repeatedCombination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
+private func _repeatedCombination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     var indices = [Int](count: length, repeatedValue: 0)
     var k = length-1
     let arrCnt = arr.count
@@ -104,7 +104,7 @@ public func repeatedCombination<T>(arr:[T], length:Int) -> [[T]] {
     return ret
 }
 
-public func repeatedCombination<T,U>(arr:[T], length:Int, process:([T]) -> U) -> [T] {
+public func repeatedCombination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     if length < 0 { return [] }
     if arr.isEmpty { return [] }
     if length == 0 { process([]); return arr }
@@ -125,7 +125,7 @@ extension Array {
         return ret
     }
     
-    func combination<U>(length:Int, process:([Element]) -> U) -> [T] {
+    func combination(length:Int, process:([Element]) -> ()) -> [T] {
         if length > self.count || length < 0 { return [] }
         if length == 0 { process([]); return self }
         return _combination(self, length, process)
@@ -141,7 +141,7 @@ extension Array {
         return ret
     }
     
-    func repeatedCombination<U>(length:Int, process:([Element]) -> U) -> [T] {
+    func repeatedCombination(length:Int, process:([Element]) -> ()) -> [T] {
         if length < 0 { return [] }
         if length == 0 { process([]); return self }
         return _repeatedCombination(self, length, process)
