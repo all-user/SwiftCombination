@@ -50,7 +50,7 @@ a.combination(2){ println($0) }
 
 
 let chrs = ["h", "e", "l", "o", "!"]
-chrs.repeatedCombination(6){ (combo:[String]) -> Void in
+chrs.repeatedCombination(6){ combo in
     if join("", combo) == "hello!" { println(combo) }
 }
 // => [h, e, l, l, o, !]
