@@ -6,10 +6,6 @@
 //  Copyright (c) 2014年 Keita Okamoto. All rights reserved.
 //
 
-import Foundation
-
-
-
 let combos = combination([0, 1, 2], 2)
 println(combos) // => [[0, 1], [0, 2], [1, 2]]
 

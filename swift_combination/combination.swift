@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 Keita Okamoto. All rights reserved.
 //
 
-import Foundation
-
-
 private func _combination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     var indices = (0..<length).map{ $0 }
     var k = length-1

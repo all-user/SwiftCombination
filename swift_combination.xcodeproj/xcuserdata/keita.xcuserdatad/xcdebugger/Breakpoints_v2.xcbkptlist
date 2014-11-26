@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swift_combination/combination.swift"
-            timestampString = "438669840.427496"
+            timestampString = "438672336.8256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "combination(_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
