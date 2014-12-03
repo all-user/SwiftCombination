@@ -55,7 +55,7 @@ chrs.repeatedCombination(length: 6){ combo in
 
 var chars = ["a", "c", "t"]
 
-//chars.permutation(length: 3){ println($0 }
+//chars.permutation(length: 3){ println($0) }
 // => shorthand
 chars.permutation{ println($0) }
 // =>
