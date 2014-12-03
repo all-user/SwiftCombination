@@ -50,3 +50,8 @@ chrs.repeatedCombination(6){ combo in
     if join("", combo) == "hello!" { println(combo) }
 }
 // => [h, e, l, l, o, !]
+
+
+// repeated permutation
+
+[0, 1].repeatedPermutation(4){ println($0) }
