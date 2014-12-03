@@ -1,7 +1,7 @@
 swift_combination
 =================
 
-Ruby's "combination" in Swift.
+Ruby's "combination", "permutation" in Swift.
 
 ```swift
 let combos = combination([0, 1, 2], 2)
