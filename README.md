@@ -30,7 +30,7 @@ println(a.combination(length: 3))
 
 
 
-// with closuer
+// with closure
 
 a.combination(length: 2){ println($0) }
 // =>
