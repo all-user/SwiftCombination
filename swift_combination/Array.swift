@@ -14,17 +14,17 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _combination(self, _len){ ret.append($0) }
+        _combination(self, length: _len){ ret.append($0) }
         
         return ret
     }
     
-    func combination(length:Int? = nil, process:[Element] -> ()) -> [T] {
+    func combination(length:Int? = nil, process:[Element] -> ()) -> [Element] {
         let _len = length ?? self.count
         if _len > self.count || _len < 0 { return [] }
         if _len == 0 { process([]); return self }
         
-        return _combination(self, _len, process)
+        return _combination(self, length: _len, process: process)
     }
     
     func repeatedCombination(length:Int? = nil) -> [[Element]] {
@@ -33,17 +33,17 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _repeatedCombination(self, _len){ ret.append($0) }
+        _repeatedCombination(self, length: _len){ ret.append($0) }
         
         return ret
     }
     
-    func repeatedCombination(length:Int? = nil, process:[Element] -> ()) -> [T] {
+    func repeatedCombination(length:Int? = nil, process:[Element] -> ()) -> [Element] {
         let _len = length ?? self.count
         if _len < 0 { return [] }
         if _len == 0 { process([]); return self }
         
-        return _repeatedCombination(self, _len, process)
+        return _repeatedCombination(self, length: _len, process: process)
     }
     
     func permutation(length:Int? = nil) -> [[Element]] {
@@ -52,16 +52,16 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _permutation(self, _len){ ret.append($0) }
+        _permutation(self, length: _len){ ret.append($0) }
         
         return ret
     }
     
-    func permutation(length:Int? = nil, process:[Element] -> ()) -> [T] {
+    func permutation(length:Int? = nil, process:[Element] -> ()) -> [Element] {
         let _len = length ?? self.count
         if _len > self.count || _len < 0 { return [] }
         if _len == 0 { process([]); return self }
-        return _permutation(self, _len, process)
+        return _permutation(self, length: _len, process: process)
     }
     
     func repeatedPermutation(length:Int? = nil) -> [[Element]] {
@@ -70,17 +70,17 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _repeatedPermutation(self, _len){ ret.append($0) }
+        _repeatedPermutation(self, length: _len){ ret.append($0) }
         
         return ret
     }
     
-    func repeatedPermutation(length:Int? = nil, process:[Element] -> ()) -> [T] {
+    func repeatedPermutation(length:Int? = nil, process:[Element] -> ()) -> [Element] {
         let _len = length ?? self.count
         if _len < 0 { return [] }
         if _len == 0 { process([]); return self }
         
-        return _repeatedPermutation(self, _len, process)
+        return _repeatedPermutation(self, length: _len, process: process)
     }
     
 }

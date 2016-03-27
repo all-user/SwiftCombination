@@ -11,26 +11,31 @@ internal func _combination<T>(arr:[T], length:Int, process:[T] -> ()) -> [T] {
     var k = length-1
     let arrCnt = arr.count
     
-    main_roop: for ;; {
-        do {
+    main_loop: while true {
+        repeat {
             process(indices.map{ arr[$0] })
-        } while ++indices[k] != arrCnt
+            indices[k]+=1
+        } while indices[k] != arrCnt
         
-        if length == 1 { break main_roop }
+        if length == 1 { break main_loop }
         
-        for ;; {
+        while true {
             if indices[k-1] != arrCnt - (length-(k-1)) {
-                let t = ++indices[k-1]
+                indices[k-1]+=1
+                let t = indices[k-1]
                 
-                for var i=k, j=1; i != length; i++, j++ {
+                var i=k, j=1
+                while i != length {
                     indices[i] = t + j
+                    i+=1
+                    j+=1
                 }
                 
                 k = length-1
                 break
             } else {
-                k--
-                if k == 0 { break main_roop }
+                k-=1
+                if k == 0 { break main_loop }
             }
         }
     }
@@ -43,26 +48,30 @@ internal func _repeatedCombination<T>(arr:[T], length:Int, process:[T] -> ()) ->
     var k = length-1
     let arrCnt = arr.count
     
-    main_roop: for ;; {
-        do {
+    main_loop: while true {
+        repeat {
             process(indices.map{ arr[$0] })
-        } while ++indices[k] != arrCnt
+            indices[k]+=1
+        } while indices[k] != arrCnt
         
-        if length == 1 { break main_roop }
+        if length == 1 { break main_loop }
         
-        for ;; {
+        while true {
             if indices[k-1] != arrCnt-1 {
-                let t = ++indices[k-1]
+                indices[k-1]+=1
+                let t = indices[k-1]
                 
-                for var i=k; i != length; i++ {
+                var i=k
+                while i != length {
                     indices[i] = t
+                    i+=1
                 }
                 
                 k = length-1
                 break
             } else {
-                k--
-                if k == 0 { break main_roop }
+                k-=1
+                if k == 0 { break main_loop }
             }
         }
     }
@@ -75,26 +84,29 @@ internal func _repeatedPermutation<T>(arr:[T], length:Int, process:[T] -> ()) ->
     var k = length-1
     let arrCnt = arr.count
     
-    main_roop: for ;; {
-        do {
+    main_loop: while true {
+        repeat {
             process(indices.map{ arr[$0] })
-        } while ++indices[k] != arrCnt
+            indices[k]+=1
+        } while indices[k] != arrCnt
         
-        if length == 1 { break main_roop }
+        if length == 1 { break main_loop }
         
-        for ;; {
+        while true {
             if indices[k-1] != arrCnt-1 {
-                ++indices[k-1]
+                indices[k-1]+=1
                 
-                for var i=k; i != length; i++ {
+                var i=k
+                while i != length {
                     indices[i] = 0
+                    i+=1
                 }
                 
                 k = length-1
                 break
             } else {
-                k--
-                if k == 0 { break main_roop }
+                k-=1
+                if k == 0 { break main_loop }
             }
         }
     }
@@ -106,18 +118,18 @@ internal func _select<T>(unselected:[Int], selected:[Int], arr:[T], process:[T] 
     if unselected.count == 0 {
         process(selected.map{ arr[$0] })
     } else {
-        for (i, slct) in enumerate(unselected) {
+        for (i, slct) in unselected.enumerate() {
             var _unselected = unselected, _selected = selected
             _unselected.removeAtIndex(i); _selected.append(slct)
-            _select(_unselected, _selected, arr, process)
+            _select(_unselected, selected: _selected, arr: arr, process: process)
         }
     }
 }
 
 internal func _permutation<T>(arr:[T], length:Int, process:[T] -> ()) -> [T] {
-    _combination(arr, length) { combo in
-        var unselected = (0..<combo.count).map{ $0 }
-        _select(unselected, [], arr, process)
+    _combination(arr, length: length) { combo in
+        let unselected = (0..<combo.count).map{ $0 }
+        _select(unselected, selected: [], arr: arr, process: process)
     }
     
     return arr

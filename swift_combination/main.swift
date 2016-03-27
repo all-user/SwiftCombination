@@ -7,34 +7,34 @@
 //
 
 let combos = combination([0, 1, 2], length: 2)
-println(combos) // => [[0, 1], [0, 2], [1, 2]]
+print(combos) // => [[0, 1], [0, 2], [1, 2]]
 
 let rCombos = repeatedCombination([0, 1, 2], length: 2)
-println(rCombos) // => [[0, 0], [0, 1], [0, 2], [1, 1], [1, 2], [2, 2]]
+print(rCombos) // => [[0, 0], [0, 1], [0, 2], [1, 1], [1, 2], [2, 2]]
 
 
 
 let a = [1, 2, 3, 4]
 
-println(combination(a, length: 1)) // => [[1], [2], [3], [4]]
-println(combination(a, length: 2)) // => [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-println(combination(a, length: 3)) // => [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
-println(combination(a, length: 4)) // => [[1, 2, 3, 4]]
-println(combination(a, length: 0)) // => [[]]
-println(combination(a, length: 5)) // => []
+print(combination(a, length: 1)) // => [[1], [2], [3], [4]]
+print(combination(a, length: 2)) // => [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+print(combination(a, length: 3)) // => [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
+print(combination(a, length: 4)) // => [[1, 2, 3, 4]]
+print(combination(a, length: 0)) // => [[]]
+print(combination(a, length: 5)) // => []
 
 
 
 // Array method
 
-println(a.combination(length: 3))
+print(a.combination(3))
 // => [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
 
 
 
 // with closuer
 
-a.combination(length: 2){ println($0) }
+a.combination(2){ print($0) }
 // =>
 // [1, 2]
 // [1, 3]
@@ -46,8 +46,8 @@ a.combination(length: 2){ println($0) }
 
 
 let chrs = ["h", "e", "l", "o", "!"]
-chrs.repeatedCombination(length: 6){ combo in
-    if join("", combo) == "hello!" { println(combo) }
+chrs.repeatedCombination(6){ combo in
+    if combo.joinWithSeparator("") == "hello!" { print(combo) }
 }
 // => [h, e, l, l, o, !]
 
@@ -59,7 +59,7 @@ var chars = ["a", "c", "t"]
 
 //chars.permutation(length: 3){ println($0 }
 // => shorthand
-chars.permutation{ println($0) }
+chars.permutation{ print($0) }
 // =>
 // [a, c, t]
 // [a, t, c]
@@ -72,7 +72,7 @@ chars.permutation{ println($0) }
 
 // repeated permutation
 
-[0, 1].repeatedPermutation(length: 4){ println($0) }
+[0, 1].repeatedPermutation(4){ print($0) }
 // =>
 // [0, 0, 0, 0]
 // [0, 0, 0, 1]
