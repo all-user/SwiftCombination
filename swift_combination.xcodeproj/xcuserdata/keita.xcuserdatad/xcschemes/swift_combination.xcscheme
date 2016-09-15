@@ -35,7 +35,7 @@
             BlueprintIdentifier = "23EFD8321A1C23C000B89461"
             BuildableName = "swift_combination"
             BlueprintName = "swift_combination"
-            ReferencedContainer = "container:../../../../workspace/swift_combination/swift_combination.xcodeproj">
+            ReferencedContainer = "container:swift_combination.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "23EFD8321A1C23C000B89461"
             BuildableName = "swift_combination"
             BlueprintName = "swift_combination"
-            ReferencedContainer = "container:../../../../workspace/swift_combination/swift_combination.xcodeproj">
+            ReferencedContainer = "container:swift_combination.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
