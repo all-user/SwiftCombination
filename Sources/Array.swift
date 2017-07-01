@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Keita Okamoto. All rights reserved.
 //
 
-extension Array {
+public extension Array {
     
     @discardableResult
     func combination(length:Int? = nil) -> [[Element]] {
@@ -15,7 +15,7 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _combination(arr: self, length: _len){ ret.append($0) }
+        _combination(self, length: _len){ ret.append($0) }
         
         return ret
     }
@@ -26,7 +26,7 @@ extension Array {
         if _len > self.count || _len < 0 { return [] }
         if _len == 0 { process([]); return self }
         
-        return _combination(arr: self, length: _len, process: process)
+        return _combination(self, length: _len, process: process)
     }
     
     @discardableResult
@@ -36,7 +36,7 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _repeatedCombination(arr: self, length: _len){ ret.append($0) }
+        _repeatedCombination(self, length: _len){ ret.append($0) }
         
         return ret
     }
@@ -47,7 +47,7 @@ extension Array {
         if _len < 0 { return [] }
         if _len == 0 { process([]); return self }
         
-        return _repeatedCombination(arr: self, length: _len, process: process)
+        return _repeatedCombination(self, length: _len, process: process)
     }
     
     @discardableResult
@@ -57,7 +57,7 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _permutation(arr: self, length: _len){ ret.append($0) }
+        _permutation(self, length: _len){ ret.append($0) }
         
         return ret
     }
@@ -67,7 +67,7 @@ extension Array {
         let _len = length ?? self.count
         if _len > self.count || _len < 0 { return [] }
         if _len == 0 { process([]); return self }
-        return _permutation(arr: self, length: _len, process: process)
+        return _permutation(self, length: _len, process: process)
     }
     
     @discardableResult
@@ -77,7 +77,7 @@ extension Array {
         if _len == 0 { return [[]] }
         
         var ret = [[Element]]()
-        _repeatedPermutation(arr: self, length: _len){ ret.append($0) }
+        _repeatedPermutation(self, length: _len){ ret.append($0) }
         
         return ret
     }
@@ -88,7 +88,7 @@ extension Array {
         if _len < 0 { return [] }
         if _len == 0 { process([]); return self }
         
-        return _repeatedPermutation(arr: self, length: _len, process: process)
+        return _repeatedPermutation(self, length: _len, process: process)
     }
     
 }

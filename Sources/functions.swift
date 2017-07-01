@@ -7,93 +7,93 @@
 //
 
 @discardableResult
-public func combination<T>(arr:[T], length:Int? = nil) -> [[T]] {
+public func combination<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     let _len = length ?? arr.count
     if _len > arr.count || _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
     
     var ret = [[T]]()
-    _combination(arr: arr, length: _len){ ret.append($0) }
+    _combination(arr, length: _len){ ret.append($0) }
     
     return ret
 }
 
 @discardableResult
-public func combination<T>(arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
+public func combination<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
     let _len = length ?? arr.count
     if _len > arr.count || _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
     
-    return _combination(arr: arr, length: _len, process: process)
+    return _combination(arr, length: _len, process: process)
 }
 
 @discardableResult
-public func repeatedCombination<T>(arr:[T], length:Int? = nil) -> [[T]] {
+public func repeatedCombination<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
     
     var ret = [[T]]()
-    _repeatedCombination(arr: arr, length: _len){ ret.append($0) }
+    _repeatedCombination(arr, length: _len){ ret.append($0) }
     
     return ret
 }
 
 @discardableResult
-public func repeatedCombination<T>(arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
+public func repeatedCombination<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
     
-    return _repeatedCombination(arr: arr, length: _len, process: process)
+    return _repeatedCombination(arr, length: _len, process: process)
 }
 
 @discardableResult
-public func repeatedPermutation<T>(arr:[T], length:Int? = nil) -> [[T]] {
+public func repeatedPermutation<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
     
     var ret = [[T]]()
-    _repeatedPermutation(arr: arr, length: _len){ ret.append($0) }
+    _repeatedPermutation(arr, length: _len){ ret.append($0) }
     
     return ret
 }
 
 @discardableResult
-public func repeatedPermutaion<T>(arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
+public func repeatedPermutaion<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
     
-    return _repeatedPermutation(arr: arr, length: _len, process: process)
+    return _repeatedPermutation(arr, length: _len, process: process)
 }
 
 @discardableResult
-public func permutation<T>(arr:[T], length:Int? = nil) -> [[T]] {
+public func permutation<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
     
     var ret = [[T]]()
-    _permutation(arr: arr, length: _len){ ret.append($0) }
+    _permutation(arr, length: _len){ ret.append($0) }
     
     return ret
 }
 
 @discardableResult
-public func permutaion<T>(arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
+public func permutaion<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
     
-    return _permutation(arr: arr, length: _len, process: process)
+    return _permutation(arr, length: _len, process: process)
 }
