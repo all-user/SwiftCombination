@@ -6,10 +6,6 @@
 //  Copyright (c) 2014年 Keita Okamoto. All rights reserved.
 //
 
-public struct SwiftCombination {
-    var test = "test"
-}
-
 //let combos = combination(arr: [0, 1, 2], length: 2)
 //print(combos) // => [[0, 1], [0, 2], [1, 2]]
 //

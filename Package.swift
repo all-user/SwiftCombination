@@ -3,6 +3,5 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftCombination",
-    exclude: ["Tests"]
+    name: "SwiftCombination"
 )

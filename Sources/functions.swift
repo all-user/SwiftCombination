@@ -12,10 +12,10 @@ public func combination<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     if _len > arr.count || _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
-    
+
     var ret = [[T]]()
     _combination(arr, length: _len){ ret.append($0) }
-    
+
     return ret
 }
 
@@ -25,7 +25,7 @@ public func combination<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) ->
     if _len > arr.count || _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
-    
+
     return _combination(arr, length: _len, process: process)
 }
 
@@ -35,10 +35,10 @@ public func repeatedCombination<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
-    
+
     var ret = [[T]]()
     _repeatedCombination(arr, length: _len){ ret.append($0) }
-    
+
     return ret
 }
 
@@ -48,7 +48,7 @@ public func repeatedCombination<T>(_ arr:[T], length:Int? = nil, process:([T]) -
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
-    
+
     return _repeatedCombination(arr, length: _len, process: process)
 }
 
@@ -58,10 +58,10 @@ public func repeatedPermutation<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
-    
+
     var ret = [[T]]()
     _repeatedPermutation(arr, length: _len){ ret.append($0) }
-    
+
     return ret
 }
 
@@ -71,7 +71,7 @@ public func repeatedPermutaion<T>(_ arr:[T], length:Int? = nil, process:([T]) ->
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
-    
+
     return _repeatedPermutation(arr, length: _len, process: process)
 }
 
@@ -81,10 +81,10 @@ public func permutation<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { return [[]] }
-    
+
     var ret = [[T]]()
     _permutation(arr, length: _len){ ret.append($0) }
-    
+
     return ret
 }
 
@@ -94,6 +94,6 @@ public func permutaion<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> 
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
     if _len == 0 { process([]); return arr }
-    
+
     return _permutation(arr, length: _len, process: process)
 }
