@@ -67,6 +67,7 @@ public extension Array {
         let _len = length ?? self.count
         if _len > self.count || _len < 0 { return [] }
         if _len == 0 { process([]); return self }
+        
         return _permutation(self, length: _len, process: process)
     }
 
