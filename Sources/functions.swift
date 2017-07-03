@@ -66,7 +66,7 @@ public func repeatedPermutation<T>(_ arr:[T], length:Int? = nil) -> [[T]] {
 }
 
 @discardableResult
-public func repeatedPermutaion<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
+public func repeatedPermutation<T>(_ arr:[T], length:Int? = nil, process:([T]) -> ()) -> [T] {
     let _len = length ?? arr.count
     if _len < 0 { return [] }
     if arr.isEmpty { return [] }
