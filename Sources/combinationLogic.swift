@@ -7,7 +7,7 @@
 //
 
 @discardableResult
-internal func _combination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
+internal func _combination<T>(_ arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     var indices = (0..<length).map{ $0 }
     var k = length-1
     let arrCnt = arr.count
@@ -45,7 +45,7 @@ internal func _combination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
 }
 
 @discardableResult
-internal func _repeatedCombination<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
+internal func _repeatedCombination<T>(_ arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     var indices = [Int](repeating: 0, count: length)
     var k = length-1
     let arrCnt = arr.count
@@ -82,7 +82,7 @@ internal func _repeatedCombination<T>(arr:[T], length:Int, process:([T]) -> ()) 
 }
 
 @discardableResult
-internal func _repeatedPermutation<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
+internal func _repeatedPermutation<T>(_ arr:[T], length:Int, process:([T]) -> ()) -> [T] {
     var indices = [Int](repeating: 0, count: length)
     var k = length-1
     let arrCnt = arr.count
@@ -117,23 +117,23 @@ internal func _repeatedPermutation<T>(arr:[T], length:Int, process:([T]) -> ()) 
     return arr
 }
 
-internal func _select<T>(unselected:[Int], selected:[Int], arr:[T], process:([T]) -> ()) {
+internal func _select<T>(_ unselected:[Int], selected:[Int], arr:[T], process:([T]) -> ()) {
     if unselected.count == 0 {
         process(selected.map{ arr[$0] })
     } else {
         for (i, slct) in unselected.enumerated() {
             var _unselected = unselected, _selected = selected
             _unselected.remove(at: i); _selected.append(slct)
-            _select(unselected: _unselected, selected: _selected, arr: arr, process: process)
+            _select(_unselected, selected: _selected, arr: arr, process: process)
         }
     }
 }
 
 @discardableResult
-internal func _permutation<T>(arr:[T], length:Int, process:([T]) -> ()) -> [T] {
-    _combination(arr: arr, length: length) { combo in
+internal func _permutation<T>(_ arr:[T], length:Int, process:([T]) -> ()) -> [T] {
+    _combination(arr, length: length) { combo in
         let unselected = (0..<combo.count).map{ $0 }
-        _select(unselected: unselected, selected: [], arr: arr, process: process)
+        _select(unselected, selected: [], arr: arr, process: process)
     }
     
     return arr
