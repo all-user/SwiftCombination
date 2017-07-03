@@ -50,63 +50,63 @@ extension GlobalRepeatedPermutationTests {
         zip(actual, expected).forEach { XCTAssertEqual($0, $1) }
     }
 
-    // func testImplicitLengthWithClosure() {
-    //     let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
-    //     var i = 0
-    //     repeatedPermutation([0, 1]) { actual in
-    //         XCTAssertEqual(actual, expected[i])
-    //         i = i + 1
-    //     }
-    //     XCTAssertNotEqual(i, 0)
-    // }
+    func testImplicitLengthWithClosure() {
+        let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
+        var i = 0
+        repeatedPermutation([0, 1]) { actual in
+            XCTAssertEqual(actual, expected[i])
+            i = i + 1
+        }
+        XCTAssertNotEqual(i, 0)
+    }
 
-    // func testExplicitLengthWithClosure() {
-    //     let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
-    //     var i = 0
-    //     repeatedPermutation([0, 1], length: 2) { actual in
-    //         XCTAssertEqual(actual, expected[i])
-    //         i = i + 1
-    //     }
-    //     XCTAssertNotEqual(i, 0)
-    // }
-    //
-    // func testArgLengthLessThanCollectionLengthWithClosure() {
-    //     let expected = [[0], [1]]
-    //     var i = 0
-    //     repeatedPermutation([0, 1], length: 1) { actual in
-    //         XCTAssertEqual(actual, expected[i])
-    //         i = i + 1
-    //     }
-    //     XCTAssertNotEqual(i, 0)
-    // }
-    //
-    // func testArgLengthGreaterThanCollectionLengthWithClosure() {
-    //     let expected = [
-    //         [0, 0, 0],
-    //         [0, 0, 1],
-    //         [0, 1, 0],
-    //         [0, 1, 1],
-    //         [1, 0, 0],
-    //         [1, 0, 1],
-    //         [1, 1, 0],
-    //         [1, 1, 1],
-    //     ]
-    //     var i = 0
-    //     repeatedPermutation([0, 1], length: 3) { actual in
-    //         XCTAssertEqual(actual, expected[i])
-    //         i = i + 1
-    //     }
-    //     XCTAssertNotEqual(i, 0)
-    // }
+    func testExplicitLengthWithClosure() {
+        let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
+        var i = 0
+        repeatedPermutation([0, 1], length: 2) { actual in
+            XCTAssertEqual(actual, expected[i])
+            i = i + 1
+        }
+        XCTAssertNotEqual(i, 0)
+    }
+
+    func testArgLengthLessThanCollectionLengthWithClosure() {
+        let expected = [[0], [1]]
+        var i = 0
+        repeatedPermutation([0, 1], length: 1) { actual in
+            XCTAssertEqual(actual, expected[i])
+            i = i + 1
+        }
+        XCTAssertNotEqual(i, 0)
+    }
+
+    func testArgLengthGreaterThanCollectionLengthWithClosure() {
+        let expected = [
+            [0, 0, 0],
+            [0, 0, 1],
+            [0, 1, 0],
+            [0, 1, 1],
+            [1, 0, 0],
+            [1, 0, 1],
+            [1, 1, 0],
+            [1, 1, 1],
+        ]
+        var i = 0
+        repeatedPermutation([0, 1], length: 3) { actual in
+            XCTAssertEqual(actual, expected[i])
+            i = i + 1
+        }
+        XCTAssertNotEqual(i, 0)
+    }
 
     static var allTests = [
         ("testImplicitLength", testImplicitLength),
         ("testExplicitLength", testExplicitLength),
         ("testArgLengthLessThanCollectionLength", testArgLengthLessThanCollectionLength),
         ("testArgLengthGreaterThanCollectionLength", testArgLengthGreaterThanCollectionLength),
-        // ("testImplicitLengthWithClosure", testImplicitLengthWithClosure),
-        // ("testExplicitLengthWithClosure", testExplicitLengthWithClosure),
-        // ("testArgLengthLessThanCollectionLengthWithClosure", testArgLengthLessThanCollectionLengthWithClosure),
-        // ("testArgLengthGreaterThanCollectionLengthWithClosure", testArgLengthGreaterThanCollectionLengthWithClosure),
+        ("testImplicitLengthWithClosure", testImplicitLengthWithClosure),
+        ("testExplicitLengthWithClosure", testExplicitLengthWithClosure),
+        ("testArgLengthLessThanCollectionLengthWithClosure", testArgLengthLessThanCollectionLengthWithClosure),
+        ("testArgLengthGreaterThanCollectionLengthWithClosure", testArgLengthGreaterThanCollectionLengthWithClosure),
     ]
 }
