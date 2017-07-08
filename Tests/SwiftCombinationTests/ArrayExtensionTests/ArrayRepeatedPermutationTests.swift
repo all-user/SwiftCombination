@@ -11,13 +11,6 @@ import SwiftCombination
 final class ArrayRepeatedPermutationTests: SwiftCombinationTests {}
 
 extension ArrayRepeatedPermutationTests {
-    func testImplicitLength() {
-        let actual = [0, 1].repeatedPermutation()
-        let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
-        XCTAssertEqual(actual.count, expected.count)
-        zip(actual, expected).forEach { XCTAssertEqual($0, $1) }
-    }
-
     func testExplicitLength() {
         let actual = [0, 1].repeatedPermutation(2)
         let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
@@ -46,16 +39,6 @@ extension ArrayRepeatedPermutationTests {
         ]
         XCTAssertEqual(actual.count, expected.count)
         zip(actual, expected).forEach { XCTAssertEqual($0, $1) }
-    }
-
-    func testImplicitLengthWithClosure() {
-        let expected = [[0, 0], [0, 1], [1, 0], [1, 1]]
-        var i = 0
-        [0, 1].repeatedPermutation{ actual in
-            XCTAssertEqual(actual, expected[i])
-            i = i + 1
-        }
-        XCTAssertNotEqual(i, 0)
     }
 
     func testExplicitLengthWithClosure() {
@@ -98,11 +81,9 @@ extension ArrayRepeatedPermutationTests {
     }
 
     static var allTests = [
-        ("testImplicitLength", testImplicitLength),
         ("testExplicitLength", testExplicitLength),
         ("testArgLengthLessThanCollectionLength", testArgLengthLessThanCollectionLength),
         ("testArgLengthGreaterThanCollectionLength", testArgLengthGreaterThanCollectionLength),
-        ("testImplicitLengthWithClosure", testImplicitLengthWithClosure),
         ("testExplicitLengthWithClosure", testExplicitLengthWithClosure),
         ("testArgLengthLessThanCollectionLengthWithClosure", testArgLengthLessThanCollectionLengthWithClosure),
         ("testArgLengthGreaterThanCollectionLengthWithClosure", testArgLengthGreaterThanCollectionLengthWithClosure),
