@@ -11,13 +11,6 @@ import SwiftCombination
 final class GlobalRepeatedCombinationTests: SwiftCombinationTests {}
 
 extension GlobalRepeatedCombinationTests {
-    func testImplicitLength() {
-        let actual = repeatedCombination([0, 1])
-        let expected = [[0, 0], [0, 1], [1, 1]]
-        XCTAssertEqual(actual.count, expected.count)
-        zip(actual, expected).forEach { XCTAssertEqual($0, $1) }
-    }
-
     func testExplicitLength() {
         let actual = repeatedCombination([0, 1], length: 2)
         let expected = [[0, 0], [0, 1], [1, 1]]
@@ -42,16 +35,6 @@ extension GlobalRepeatedCombinationTests {
         ]
         XCTAssertEqual(actual.count, expected.count)
         zip(actual, expected).forEach { XCTAssertEqual($0, $1) }
-    }
-
-    func testImplicitLengthWithClosure() {
-        let expected = [[0, 0], [0, 1], [1, 1]]
-        var i = 0
-        repeatedCombination([0, 1]) { actual in
-            XCTAssertEqual(actual, expected[i])
-            i = i + 1
-        }
-        XCTAssertNotEqual(i, 0)
     }
 
     func testExplicitLengthWithClosure() {
@@ -90,11 +73,9 @@ extension GlobalRepeatedCombinationTests {
     }
 
     static var allTests = [
-        ("testImplicitLength", testImplicitLength),
         ("testExplicitLength", testExplicitLength),
         ("testArgLengthLessThanCollectionLength", testArgLengthLessThanCollectionLength),
         ("testArgLengthGreaterThanCollectionLength", testArgLengthGreaterThanCollectionLength),
-        ("testImplicitLengthWithClosure", testImplicitLengthWithClosure),
         ("testExplicitLengthWithClosure", testExplicitLengthWithClosure),
         ("testArgLengthLessThanCollectionLengthWithClosure", testArgLengthLessThanCollectionLengthWithClosure),
         ("testArgLengthGreaterThanCollectionLengthWithClosure", testArgLengthGreaterThanCollectionLengthWithClosure),
