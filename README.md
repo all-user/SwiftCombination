@@ -103,7 +103,7 @@ let package = Package(
     name: "FooProject",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/all-user/SwiftCombination.git", versions: "0.1.0"..<"0.2.0")
+        .Package(url: "https://github.com/all-user/SwiftCombination.git", versions: "0.2.0"..<"0.3.0")
     ]
 )
 ```
