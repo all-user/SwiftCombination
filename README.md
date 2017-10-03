@@ -90,7 +90,7 @@ chars.permutation{ print($0) }
 // [1, 1, 1, 1]
 ```
 
-## Instalation
+## Installation
 
 ### Swift Package Manager
 
